@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 const Header = () => {
   return (
     <header>
-      <div className="content md:flex items-center gap-4 p-6 w-full justify-between absolute top-0 max-md:hidden">
+      <div className="content md:flex items-center gap-4 p-6 w-full justify-between absolute z-10 top-0 max-md:hidden">
         <div className="logo">
           <Link href={"/"}>
             <h2 className="font-bold text-xl text-white">Horizone</h2>
@@ -39,7 +39,7 @@ const Header = () => {
         <SearchBar />
         <LoginBtn />
       </div>
-      <div className="mobile-menu md:hidden absolute p-6 flex w-full justify-between">
+      <div className="mobile-menu md:hidden z-10 absolute p-6 flex w-full justify-between">
         <div className="logo">
           <Link href={"/"}>
             <h2 className="font-bold text-xl text-white">Horizone</h2>
@@ -83,10 +83,7 @@ const Header = () => {
 function SearchBar() {
   return (
     <div className="relative flex">
-      <Input
-        className="md:w-80 px-4 text-white bg-transparent focus:bg-opacity-25 focus:bg-white shadow-sm placeholder:text-white  focus-visible:ring-0 focus-visible:ring-white"
-        placeholder="Search Destination..."
-      />
+      <Input className="md:w-80 px-4 text-white bg-opacity-25 backdrop-blur-lg shadow-sm placeholder:text-white  focus-visible:ring-0 focus-visible:ring-white" placeholder="Search Destination..." />
       <div className="icon  absolute top-[10px] right-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white" className="size-5">
           <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
