@@ -7,21 +7,22 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const getPosts = async () : Promise<Product[]> => {
-    // const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    // const data = await res.json()
-    return new Promise((res, rej) => {
-      setTimeout(() => res(data), 2000)
-     })
+export function readingTime(str: string) {;
+  const wpm = 225;
+  const words = str.trim().split(/\s+/).length;
+  const time = Math.ceil(words / wpm);
+  return time;
 }
 
-export const getPost = async (slug: string) : Promise<Product | undefined> => {
-  // const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  // const data = await res.json()
+export const getPosts = async (limit?: number) : Promise<Product[]> => {
+    const res = await fetch(`https://dummyjson.com/posts?limit=${limit ? limit : "30"}`);
+    const data = await res.json();
+    return data.posts;
+}
 
-  const post = data.find((item=> item.slug === slug));
+export const getPost = async (id: number) : Promise<Product | undefined> => {
+   const res = await fetch(`https://dummyjson.com/posts/${id}`);
+    const data = await res.json()
 
-  return new Promise((res, rej) => {
-    setTimeout(() => res(post), 2000)
-   })
+    return data;
 }

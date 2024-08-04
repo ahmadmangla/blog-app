@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 const Cover = () => {
   return (
-    <section className="cover relative rounded-lg m-2 overflow-hidden after:content-[''] after:absolute after:w-full after:top-0 after:h-16 after:blur-2xl after:opacity-70 after:  after:bg-black">
+    <section className="cover relative rounded-lg m-2 overflow-hidden ">
       <div className=" image-container">
         <Image className="md:h-[600px] object-cover" src={"/robert-richarz-WOhTfiB-ECs-unsplash.jpg"} alt="Lake" width={1920} height={1080} />
       </div>

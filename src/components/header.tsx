@@ -10,13 +10,14 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathName = usePathname();
+  console.log(pathName);
   return (
-    <header className={`${pathName === "/" ? "" : "m-2 overflow-hidden rounded-lg"}`}>
+    <header className={`${pathName === "/blogs" ? "m-2 overflow-hidden rounded-lg" : "overflow-hidden"}`}>
       <div
         className={`${
-          pathName === "/"
-            ? "absolute content md:flex items-center gap-4 p-6 w-full justify-between z-10 top-0 max-md:hidden"
-            : "content bg-black md:flex items-center gap-4 p-4 w-full justify-between z-10 top-0 max-md:hidden"
+          pathName === "/blogs"
+            ? "content bg-black md:flex items-center gap-4 p-4 w-full justify-between z-10 top-0 max-md:hidden"
+            : "absolute content md:flex items-center gap-4 p-6 w-full justify-between z-10 top-0 max-md:hidden after:content-[''] after:absolute after:w-full after:top-[15px] after:h-16 after:blur-2xl after:opacity-70 after:  after:bg-black after:-z-10"
         }`}
       >
         <div className="logo">
@@ -50,7 +51,7 @@ const Header = () => {
         <SearchBar />
         <LoginBtn />
       </div>
-      <div className={`${pathName === "/" ? "mobile-menu md:hidden z-10 absolute p-6 flex w-full justify-between" : "mobile-menu md:hidden z-10 bg-black p-6 flex w-full justify-between"}`}>
+      <div className={`${pathName === "/blogs" ? "mobile-menu md:hidden z-10 bg-black p-6 flex w-full justify-between" : "mobile-menu md:hidden z-10 absolute p-6 flex w-full justify-between"}`}>
         <div className="logo">
           <Link href={"/"}>
             <h2 className="font-bold text-xl text-white">Horizone</h2>

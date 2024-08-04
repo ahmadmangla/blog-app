@@ -6,8 +6,8 @@ import Header from "@/components/header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Simple Blog",
-  description: "A simple blog application made with Next.js",
+  title: "Horizone Blogs - World For Travellers",
+  description: "Welcome to Horizon Blogs where we create amazing blogs covering travel tips and hotel experiences",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-x-hidden`}>
         <Header />
         <main>{children}</main>
       </body>

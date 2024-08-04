@@ -7,9 +7,12 @@ export default function Home() {
   return (
     <>
       <Cover />
-      <h1 className="text-3xl text-center py-4 font-bold">Welcome to my Blog</h1>
+      <div className="heading px-6 py-6">
+        <h1 className="text-3xl  font-medium">Blog</h1>
+        <p>Here we share travel tips, destination guides and stories that inspire your next adventure</p>
+      </div>
       <Suspense fallback={<BlogGridSkeleton />}>
-        <BlogGrid />
+        <BlogGrid limit={8} />
       </Suspense>
     </>
   );

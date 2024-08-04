@@ -1,6 +1,12 @@
 import BlogGrid from "@/components/blog-grid";
 import BlogGridSkeleton from "@/components/blog-grid-skeleton";
+import { Metadata } from "next";
 import React, { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "Checkout my Blogs",
+};
 
 const Blogs = () => {
   return (
