@@ -4,20 +4,22 @@ import { Badge } from "@/components/ui/badge";
 
 const Cover = () => {
   return (
-    <section className="relative rounded-lg m-2 overflow-hidden">
+    <section className="cover relative rounded-lg m-2 overflow-hidden after:content-[''] after:absolute after:w-full after:top-0 after:h-16 after:blur-2xl after:opacity-70 after:  after:bg-black">
       <div className=" image-container">
         <Image className="md:h-[600px] object-cover" src={"/robert-richarz-WOhTfiB-ECs-unsplash.jpg"} alt="Lake" width={1920} height={1080} />
       </div>
       <div className="content absolute z-10 bottom-0 px-6 py-6 md:flex justify-between w-full items-center">
         <div className="left-section">
           <Badge className="py-2 bg-white bg-opacity-25 backdrop-blur-lg hover:bg-white hover:bg-opacity-25"> Destination </Badge>
-          <h1 className="text-white text-2xl my-4">Exploring the Wonder of Hiking</h1>
+          <h1 className="text-white text-3xl my-4">Exploring the Wonder of Hiking</h1>
           <p className="text-white w-80">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptates hic maiores?</p>
         </div>
         <div className="right-section">
           <div className="profile">
             <div className="flex gap-3 mb-4 items-center md:justify-end">
-              <Image className="rounded-full h-12 overflow-hidden object-cover" src={"/profile.jpg"} width={50} height={40} alt="profile image" />
+              <div className="image relative w-12 h-12">
+                <Image className="rw-full h-full rounded-full border-2 border-white shadow-lg object-cover" src={"/profile.jpg"} width={100} height={100} alt="profile image" />
+              </div>
               <span className="text-white">John Doe</span>
             </div>
             <div>

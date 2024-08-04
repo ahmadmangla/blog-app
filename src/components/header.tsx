@@ -1,13 +1,24 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { getURL } from "next/dist/shared/lib/utils";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathName = usePathname();
   return (
-    <header>
-      <div className="content md:flex items-center gap-4 p-6 w-full justify-between absolute z-10 top-0 max-md:hidden">
+    <header className={`${pathName === "/" ? "" : "m-2 overflow-hidden rounded-lg"}`}>
+      <div
+        className={`${
+          pathName === "/"
+            ? "absolute content md:flex items-center gap-4 p-6 w-full justify-between z-10 top-0 max-md:hidden"
+            : "content bg-black md:flex items-center gap-4 p-4 w-full justify-between z-10 top-0 max-md:hidden"
+        }`}
+      >
         <div className="logo">
           <Link href={"/"}>
             <h2 className="font-bold text-xl text-white">Horizone</h2>
@@ -39,7 +50,7 @@ const Header = () => {
         <SearchBar />
         <LoginBtn />
       </div>
-      <div className="mobile-menu md:hidden z-10 absolute p-6 flex w-full justify-between">
+      <div className={`${pathName === "/" ? "mobile-menu md:hidden z-10 absolute p-6 flex w-full justify-between" : "mobile-menu md:hidden z-10 bg-black p-6 flex w-full justify-between"}`}>
         <div className="logo">
           <Link href={"/"}>
             <h2 className="font-bold text-xl text-white">Horizone</h2>
