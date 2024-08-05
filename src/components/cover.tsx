@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 const Cover = () => {
   return (
     <section className="cover relative rounded-lg m-2 overflow-hidden ">
-      <div className=" image-container">
-        <Image className="md:h-[600px] object-cover" src={"/robert-richarz-WOhTfiB-ECs-unsplash.jpg"} alt="Lake" width={1920} height={1080} />
+      <div className=" image-container object-cover">
+        <Image className="md:h-[600px] object-cover w-full" src={"/robert-richarz-WOhTfiB-ECs-unsplash.jpg"} alt="Lake" width={1920} height={1080} />
       </div>
       <div className="content absolute z-10 bottom-0 px-6 py-6 md:flex justify-between w-full items-center">
         <div className="left-section">

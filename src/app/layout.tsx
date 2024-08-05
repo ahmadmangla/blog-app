@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import { PostProvider } from "@/context/PostContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} overflow-x-hidden`}>
         <Header />
-        <main>{children}</main>
+        <PostProvider>
+          <main>{children}</main>
+        </PostProvider>
       </body>
     </html>
   );

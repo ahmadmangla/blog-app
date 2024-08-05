@@ -13,7 +13,7 @@ const Blogs = () => {
     <>
       <h1 className="text-3xl text-center py-4 font-bold">All Blogs</h1>
       <Suspense fallback={<BlogGridSkeleton />}>
-        <BlogGrid />
+        <BlogGrid refresh={true} />
       </Suspense>
     </>
   );

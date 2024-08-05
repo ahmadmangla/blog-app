@@ -19,7 +19,6 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 }
 
 const page = async ({ params }: { params: { id: number } }) => {
-  console.log(params);
   const post = await getPost(params.id);
   return (
     <div>
@@ -30,7 +29,7 @@ const page = async ({ params }: { params: { id: number } }) => {
           <h1 className="text-4xl text-white font-bold text-primary-foreground sm:text-5xl md:text-6xl">{post?.title}</h1>
           <div className="mt-4 text-muted-foreground">
             <p className="text-lg text-white">
-              By <span className="font-medium">John Doe</span> | July 31, 2024
+              By <span className="font-medium">{post?.user?.name}</span> | July 31, 2024
             </p>
           </div>
         </div>
@@ -43,7 +42,7 @@ const page = async ({ params }: { params: { id: number } }) => {
       <section className="bg-muted py-12 md:py-16 lg:py-20">
         <div className="container">
           <h2 className="text-3xl font-bold mb-8 text-center">Related Posts</h2>
-          <BlogGrid limit={6} />
+          <BlogGrid refresh={true} />
         </div>
       </section>
     </div>

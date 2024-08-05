@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -6,14 +8,18 @@ import { getPosts, readingTime } from "@/lib/utils";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
 import slugify from "slugify";
+import { usePostContext } from "@/context/PostContext";
 
-const BlogGrid = async ({ limit }: { limit?: number }) => {
-  const data = await getPosts(limit);
+const BlogGrid = async ({ refresh }: { refresh?: boolean }) => {
+  if (refresh) {
+    const { clearFilter } = usePostContext();
+    clearFilter();
+  }
+  const { filteredPosts } = usePostContext();
 
   return (
     <section className="blogs-list flex-col md:flex-row flex flex-wrap mx-6 justify-center items-center space-between gap-4 ">
-      {data.map((item) => {
-        const randomImage = "https://picsum.photos/1920/1080";
+      {filteredPosts.map((item: any) => {
         return (
           <Card className="w-[350px] relative border-none outline-none shadow-none px-0" key={item.id}>
             <Badge className="py-2 absolute top-0 m-3 z-10 bg-white bg-opacity-25 backdrop-blur-lg hover:bg-white hover:bg-opacity-25"> {item.tags[1]} </Badge>
@@ -29,9 +35,9 @@ const BlogGrid = async ({ limit }: { limit?: number }) => {
               <div className="profile">
                 <div className="flex gap-2 mb-4 items-center">
                   <div className="image relative w-8 h-8">
-                    <Image className="w-full h-full rounded-full shadow-lg object-cover" src={"/profile.jpg"} width={100} height={100} alt="profile image" />
+                    <Image className="w-full h-full rounded-full shadow-lg object-cover" src={item.user.image} width={100} height={100} alt="profile image" />
                   </div>
-                  <span className="text-sm font-bold">John Doe</span>
+                  <span className="text-sm font-bold">{item.user.name}</span>
                 </div>
               </div>
             </CardFooter>

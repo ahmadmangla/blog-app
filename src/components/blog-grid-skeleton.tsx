@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 const BlogGridSkeleton = () => {
   return (
     <section className="blogs-list flex-col md:flex-row flex flex-wrap justify-center items-center space-between gap-4 ">
-      {Array.from([0, 1, 3]).map((item) => {
+      {Array.from([0, 1, 2, 3, 4, 5, 6, 7, 8]).map((item) => {
         return (
           <Card className="w-[350px]" key={item}>
             <Skeleton className="w-[100%] h-[200px]" />
